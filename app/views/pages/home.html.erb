@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage container-fluid">
+  <div>
+    <%= image_tag("logo.png") %>
+  </div>
+
+  <div>
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-dark" %>
+    <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-dark" %>
+  </div>
+</div>
