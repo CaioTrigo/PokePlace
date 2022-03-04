@@ -13,10 +13,16 @@
   </head>
 
   <body>
+
+    <% unless current_page?(root_path) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
+    <%= render 'shared/flashes' %>
+
+    <%= yield %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
   </body>
 </html>

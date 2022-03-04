@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+.homepage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("bg.png");
+}
+
+.homepage img{
+  width: 600px;
+}
