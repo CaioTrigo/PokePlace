@@ -7,12 +7,12 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Pokémons</h3>
-    <%= link_to "Add a Pokémon to your list", new_pokemon_path, class: "btn btn-flat" %>
+    <%= link_to "Add a Pokémon to your list", new_my_pokemon_path, class: "btn btn-flat" %>
   </div>
 </div>
 
-<% @pokemons.each do |pokemon| %>
-  <%= pokemon.name %>
-  <%= pokemon.type_1 %>
-  <%= pokemon.type_2 if pokemon.type_2 %>
+<% @my_pokemons.each do |my_pokemon| %>
+  <%= my_pokemon.pokemon.name %>
+  <%= my_pokemon.pokemon.type_1 %>
+  <%= my_pokemon.pokemon.type_2 if my_pokemon.pokemon.type_2 %>
 <% end %>

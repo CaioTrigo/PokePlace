@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_141001) do
+ActiveRecord::Schema.define(version: 2022_03_04_172801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "my_pokemons", force: :cascade do |t|
+    t.bigint "pokemon_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pokemon_id"], name: "index_my_pokemons_on_pokemon_id"
+    t.index ["user_id"], name: "index_my_pokemons_on_user_id"
+  end
+
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
     t.string "number"
-    t.string "types"
+    t.string "type_1"
+    t.string "type_2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
@@ -26,10 +36,10 @@ ActiveRecord::Schema.define(version: 2022_03_04_141001) do
 
   create_table "trades", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "pokemon_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["pokemon_id"], name: "index_trades_on_pokemon_id"
+    t.bigint "my_pokemon_id"
+    t.index ["my_pokemon_id"], name: "index_trades_on_my_pokemon_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
@@ -47,6 +57,8 @@ ActiveRecord::Schema.define(version: 2022_03_04_141001) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "trades", "pokemons"
+  add_foreign_key "my_pokemons", "pokemons"
+  add_foreign_key "my_pokemons", "users"
+  add_foreign_key "trades", "my_pokemons"
   add_foreign_key "trades", "users"
 end
