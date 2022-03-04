@@ -24,10 +24,10 @@
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/96788095?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end nav-drop" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item nav-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item nav-item" %>
-              <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", "#", class: "dropdown-item" %>
+              <%#= link_to "Log out", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <%# else %>
