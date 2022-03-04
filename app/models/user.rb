@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :my_pokemons, dependent: :destroy
+  has_many :trades, dependent: :destroy
+
   validates :first_name, :last_name, :email, presence: true
 end

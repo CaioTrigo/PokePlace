@@ -1,4 +1,6 @@
 class Pokemon < ApplicationRecord
+  has_many :my_pokemons
+
   TYPES = %w[fire water grass rock ground bug ice flying fighting fairy dragon electric steel poison normal ghost dark psychic].freeze
 
   validates :name, presence: true
