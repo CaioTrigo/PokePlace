@@ -5,6 +5,13 @@ class MyPokemonsController < ApplicationController
     @my_pokemons = current_user.my_pokemons.all
   end
 
+  def search
+    @trade_pokemons = MyPokemon.where(available: true).where.not(user: current_user)
+  end
+
+  def trade
+  end
+
   def show
   end
 
