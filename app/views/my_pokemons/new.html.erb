@@ -5,7 +5,7 @@
       <div class="bg-white rounded p-3 shadow">
         <h3>Add a Pokémon</h3>
         <%= simple_form_for @my_pokemon do |f| %>
-          <%= f.input :pokemon_id, collection: Pokemon.all %>
+          <%= f.input :pokemon_id, collection: Pokemon.all.order(:name), input_html: { data: { controller: 'select2' }} %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
