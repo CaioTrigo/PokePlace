@@ -1,18 +1,30 @@
+<div class="container pt-4">
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center">
-    <h1>Trade Pokémons</h1>
+  <h1 class="text-center"> Pokedex </h1>
+  <div class="container d-flex flex-row flex-wrap justify-content-center">
+
+    <div class="card col-3 d-flex flex-collumn">
+      <div class="picture">
+        <img src= 'image_tag my_pokemon.pokemon.image_url' alt="">
+      </div>
+      <div class="content">
+        <% @my_pokemons.each do |my_pokemon| %>
+          <%= my_pokemon.pokemon.name %>
+        <% end %>
+        <span>Type</span>
+      </div>
+    </div>
+
   </div>
-</div>
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Pokémons</h3>
-    <%= link_to "Add a Pokémon to your list", new_my_pokemon_path, class: "btn btn-flat" %>
-  </div>
+
 </div>
 
-<% @my_pokemons.each do |my_pokemon| %>
-  <%= my_pokemon.pokemon.name %>
-  <%= my_pokemon.pokemon.type_1 %>
-  <%= my_pokemon.pokemon.type_2 if my_pokemon.pokemon.type_2 %>
-<% end %>
+
+
+
+ <%#=link_to "Add a Pokémon to your list", new_my_pokemon_path, class: "btn btn-add" %>
+
+<% #@my_pokemons.each do |my_pokemon| %>
+  <%#= my_pokemon.pokemon.name %>
+  <%#= my_pokemon.pokemon.type_1 %>
+  <%#= my_pokemon.pokemon.type_2 if my_pokemon.pokemon.type_2 %>
