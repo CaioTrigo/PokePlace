@@ -31,7 +31,11 @@
           <% end %>
         </div>
       </div>
-    <%= link_to "trade", edit_my_pokemon_path(my_pokemon), class: "btn btn-primary w-100 my-3 rounded-pill" %>
+      <%= simple_form_for my_pokemon do |f| %>
+        <%= hidden_field_tag :other_pokemon_id, @other_pokemon_id %>
+        <%= f.submit "trade", class: "btn btn-primary w-100 my-3 rounded-pill" %>
+      <% end %>
+    <%#= link_to "trade", edit_my_pokemon_path(my_pokemon), class: "btn btn-primary w-100 my-3 rounded-pill" %>
     </div>
   <% end %>
   </div>
