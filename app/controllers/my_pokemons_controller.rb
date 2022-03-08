@@ -1,5 +1,4 @@
 class MyPokemonsController < ApplicationController
-  before_action :set_my_pokemon, only: %i[show]
 
   def index
     @my_pokemons = current_user.my_pokemons.all
@@ -9,7 +8,20 @@ class MyPokemonsController < ApplicationController
     @trade_pokemons = MyPokemon.where(available: true).where.not(user: current_user)
   end
 
-  def trade
+  def edit
+    @my_trade_pokemons = MyPokemon.where(available: true).where(user: current_user)
+    @other_pokemon_id = params[:id]
+  end
+
+  def update
+    my_pokemon = MyPokemon.find(params[:id])
+    other_pokemon = MyPokemon.find(params[:other_pokemon_id])
+    my_pokemon_user = my_pokemon.user
+    my_pokemon.user = other_pokemon.user
+    my_pokemon.save
+    other_pokemon.user = my_pokemon_user
+    other_pokemon.save
+    redirect_to root_path
   end
 
   def show
@@ -31,15 +43,9 @@ class MyPokemonsController < ApplicationController
     end
   end
 
-    def destroy
-      @my_pokemon = MyPokemon.find(params[:id])
-      @my_pokemon.destroy
-      redirect_to my_pokemons_path
-    end
-
-  private
-
-  def set_my_pokemon
+  def destroy
     @my_pokemon = MyPokemon.find(params[:id])
+    @my_pokemon.destroy
+    redirect_to my_pokemons_path
   end
 end

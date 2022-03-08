@@ -1,4 +1,5 @@
 <% @trade_pokemons.each do |my_pokemon| %>
     <%= my_pokemon.pokemon.name %>
     <%= image_tag my_pokemon.pokemon.image_url %>
+    <%= link_to "trade", edit_my_pokemon_path(my_pokemon) %>
 <% end %>
