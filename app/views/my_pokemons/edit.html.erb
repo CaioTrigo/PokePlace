@@ -1,0 +1,8 @@
+<% @my_trade_pokemons.each do |my_pokemon| %>
+    <%= my_pokemon.pokemon.name %>
+    <%= image_tag my_pokemon.pokemon.image_url %>
+    <%= simple_form_for my_pokemon do |f| %>
+      <%= hidden_field_tag :other_pokemon_id, @other_pokemon_id %>
+      <%= f.submit "trade", class: "btn btn-primary" %>
+    <% end %>
+<% end %>
