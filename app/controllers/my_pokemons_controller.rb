@@ -1,5 +1,5 @@
 class MyPokemonsController < ApplicationController
-  before_action :set_my_pokemon, only: %i[show destroy]
+  before_action :set_my_pokemon, only: %i[show]
 
   def index
     @my_pokemons = current_user.my_pokemons.all
@@ -30,6 +30,12 @@ class MyPokemonsController < ApplicationController
       render :new
     end
   end
+
+    def destroy
+      @my_pokemon = MyPokemon.find(params[:id])
+      @my_pokemon.destroy
+      redirect_to my_pokemons_path
+    end
 
   private
 

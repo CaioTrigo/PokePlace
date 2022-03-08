@@ -1,23 +1,43 @@
 <div class="container pt-4">
-
   <h1 class="text-center"> Pokedex </h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
 
+  <% @my_pokemons.each do |my_pokemon| %>
+
     <div class="card col-3 d-flex flex-collumn">
       <div class="picture">
-        <img src= 'image_tag my_pokemon.pokemon.image_url' alt="">
+        <%= image_tag(my_pokemon.pokemon.image_url) %>
+
+        <div class="trash">
+          <%=link_to my_pokemon_path(my_pokemon),data: { confirm: 'Are you sure you want to delete this item?' }, method: :delete do %>
+             <i class="fas fa-trash-alt" ></i>
+          <% end %>
+        </div>
       </div>
-      <div class="content">
-        <% @my_pokemons.each do |my_pokemon| %>
+      <div class="content d-flex">
+
+        <div class="col">
           <%= my_pokemon.pokemon.name %>
-        <% end %>
-        <span>Type</span>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <span>
+              <%= my_pokemon.pokemon.type_1 %>
+          </span>
+          <% unless my_pokemon.pokemon.type_2.nil? %>
+            <span>
+              <%= my_pokemon.pokemon.type_2 %>
+            </span>
+          <% end %>
+          <%#= link_to 'delete', my_pokemon_path(my_pokemon), method: :delete  %>
+        </div>
       </div>
     </div>
+
+  <% end %>
   </div>
 </div>
 
-
+ <%#<Pokemon id: 1, name: "bulbasaur", number: nil, type_1: "grass", type_2: "poison", created_at: "2022-03-04 16:54:56.122969000 +0000", updated_at: "2022-03-04 16:54:56.122969000 +0000", image_url: "https://raw.githubusercontent.com/PokeAPI/sprites/...">
 
 
  <%#=link_to "Add a Pokémon to your list", new_my_pokemon_path, class: "btn btn-add" %>

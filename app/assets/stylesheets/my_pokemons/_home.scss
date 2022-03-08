@@ -19,7 +19,9 @@ h1 {
   box-shadow: 2px 5px 12px -1px rgba(0,0,0,0.34);
 }
 
+
 .picture {
+  position: relative;
   width: 100%;
   text-align: center;
 
@@ -28,11 +30,25 @@ h1 {
   }
 }
 
+.trash {
+  z-index: 100;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+
+  a {
+    color: #DB3069;
+  }
+}
+.trash:hover {
+  opacity: 0.3;
+}
 
 .content {
   background-color: #DB3069;
   border-radius: 5px;
   padding: 8px;
+  height: 50px;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -42,13 +58,11 @@ h1 {
   color: white;
 
   span {
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: 100;
     border: solid 1px white;
     border-radius: 500px;
     padding: 3px;
-    position: absolute;
-    right: 0;
-    margin-right: 5px;
+    margin-left: 5px;
   }
 }
