@@ -1,0 +1,7 @@
+<h1 class="title is-1">Trades</h1>
+<div class="columns">
+  <% @my_trade_pokemons.each do |my_trade_pokemon| %>
+    <%= my_trade_pokemon.pokemon.name %>
+    <%= image_tag my_trade_pokemon.pokemon.image_url %>
+  <% end %>
+</div>
