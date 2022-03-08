@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "http://www.pokemongobrasil.com/wp-content/uploads/2016/08/master_ball__01__by_adfpf1-d7ea28n.png"%>
+      <%= image_tag "https://w7.pngwing.com/pngs/620/521/png-transparent-poke-ball-pokemon-pokemon-rim-mobile-phones-pokemon.png", class: "nav-icon" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,16 +15,14 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li >
-            <%= link_to "Trade", "#", class: "nav-link" %>
+            <%= link_to "Search", my_pokemons_search_path, class: "nav-link" %>
           <li>
-            <%=link_to "Add a Pokémon", new_my_pokemon_path, class: "btn btn-add"%>
+            <%=link_to "Add Pokémon", new_my_pokemon_path, class: "nav-link btn btn-add"%>
           </li>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/96788095?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", "#", class: "dropdown-item" %>
-              <%#= link_to "Log out", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
