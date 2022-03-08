@@ -19,6 +19,7 @@ class MyPokemonsController < ApplicationController
     my_pokemon_user = my_pokemon.user
     my_pokemon.user = other_pokemon.user
     my_pokemon.save
+    raise
     other_pokemon.user = my_pokemon_user
     other_pokemon.save
     redirect_to root_path
