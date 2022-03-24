@@ -2,9 +2,10 @@
 
 body {
   height: 100vh;
-  background-image: url("bg.png");
+  background-image: url("bg_2.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .homepage {
