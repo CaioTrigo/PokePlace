@@ -1,29 +1,30 @@
 <div class="container pt-4">
   <h1 class="text-center"> Pokedex </h1>
   <div class="container d-flex align-items-center flex-wrap justify-content-center">
-
-  <% @trade_pokemons.each do |my_pokemon| %>
-    <div class="card col-3 d-flex flex-column">
-      <div class="picture">
-        <%= image_tag(my_pokemon.pokemon.image_url) %>
-      </div>
-      <div class="content d-flex">
-        <div class="col">
-          <%= my_pokemon.pokemon.name %>
+    <% @trade_pokemons.each do |my_pokemon| %>
+      <div class="card col-3 d-flex flex-column mt-5 mb-3">
+        <div class="picture">
+          <%= image_tag(my_pokemon.pokemon.image_url) %>
         </div>
-        <div class="col d-flex justify-content-end">
-          <span>
-              <%= my_pokemon.pokemon.type_1 %>
-          </span>
-          <% unless my_pokemon.pokemon.type_2.nil? %>
+        <div class="content d-flex">
+          <div class="col">
+            <%= my_pokemon.pokemon.name %>
+          </div>
+          <div class="col d-flex justify-content-end">
             <span>
-              <%= my_pokemon.pokemon.type_2 %>
+                <%= my_pokemon.pokemon.type_1 %>
             </span>
-          <% end %>
+            <% unless my_pokemon.pokemon.type_2.nil? %>
+              <span>
+                <%= my_pokemon.pokemon.type_2 %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="trade-btn">
+          <%= link_to "trade", edit_my_pokemon_path(my_pokemon), class: "btn btn-primary w-100 mt-2 rounded-pill" %>
         </div>
       </div>
-    <%= link_to "trade", edit_my_pokemon_path(my_pokemon), class: "btn btn-primary w-100 mt-3 rounded-pill" %>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
