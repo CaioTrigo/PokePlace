@@ -2,7 +2,7 @@
   <h1 class="text-center"> Trade </h1>
   <div class="container d-flex align-items-center flex-wrap justify-content-center">
     <% @my_trade_pokemons.each do |my_pokemon| %>
-      <div class="card col-3 d-flex flex-column mt-5">
+      <div class="card col-3 d-flex flex-column mt-5 mb-3">
         <div class="picture">
           <%= image_tag(my_pokemon.pokemon.image_url) %>
         </div>
@@ -23,7 +23,7 @@
         </div>
         <%= simple_form_for my_pokemon do |f| %>
           <%= hidden_field_tag :other_pokemon_id, @other_pokemon_id %>
-          <%= f.submit "trade", class: "btn btn-primary w-100 my-3 rounded-pill" %>
+          <%= f.submit "trade", class: "btn btn-primary w-100 mt-2 rounded-pill" %>
         <% end %>
       </div>
     <% end %>

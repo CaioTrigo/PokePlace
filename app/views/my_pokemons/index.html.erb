@@ -2,7 +2,7 @@
   <h1 class="text-center"> Pokedex </h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
     <% @my_pokemons.each do |my_pokemon| %>
-      <div class="card col-3 d-flex flex-collumn">
+      <div class="card col-3 d-flex flex-collumn mt-5 mb-3">
         <div class="picture">
           <%= image_tag(my_pokemon.pokemon.image_url) %>
           <div class="trash">
