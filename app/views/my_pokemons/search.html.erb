@@ -1,6 +1,6 @@
-<div class="container pt-4">
+<div class="container pt-4 pb-4">
   <h1 class="text-center"> Pokedex </h1>
-  <div class="container d-flex align-items-center flex-wrap justify-content-center">
+  <div class="container d-flex align-items-center flex-wrap justify-content-center mb-5">
     <% @trade_pokemons.each do |my_pokemon| %>
       <div class="card col-3 d-flex flex-column mt-5 mb-3">
         <div class="picture">
@@ -21,7 +21,7 @@
             <% end %>
           </div>
         </div>
-        <div class="trade-btn">
+        <div>
           <%= link_to "trade", edit_my_pokemon_path(my_pokemon), class: "btn btn-primary w-100 mt-2 rounded-pill" %>
         </div>
       </div>
