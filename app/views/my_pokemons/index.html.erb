@@ -3,8 +3,7 @@
   <div class="container d-flex flex-row flex-wrap justify-content-center">
 
   <% @my_pokemons.each do |my_pokemon| %>
-
-    <div class="card col-3 d-flex flex-collumn">
+    <div class="card col-3 d-flex flex-column">
       <div class="picture">
         <%= image_tag(my_pokemon.pokemon.image_url) %>
 
@@ -28,7 +27,6 @@
               <%= my_pokemon.pokemon.type_2 %>
             </span>
           <% end %>
-          <%#= link_to 'delete', my_pokemon_path(my_pokemon), method: :delete  %>
         </div>
       </div>
     </div>
@@ -36,13 +34,3 @@
   <% end %>
   </div>
 </div>
-
- <%#<Pokemon id: 1, name: "bulbasaur", number: nil, type_1: "grass", type_2: "poison", created_at: "2022-03-04 16:54:56.122969000 +0000", updated_at: "2022-03-04 16:54:56.122969000 +0000", image_url: "https://raw.githubusercontent.com/PokeAPI/sprites/...">
-
-
- <%#=link_to "Add a Pokémon to your list", new_my_pokemon_path, class: "btn btn-add" %>
-
-<% #@my_pokemons.each do |my_pokemon| %>
-  <%#= my_pokemon.pokemon.name %>
-  <%#= my_pokemon.pokemon.type_1 %>
-  <%#= my_pokemon.pokemon.type_2 if my_pokemon.pokemon.type_2 %>
